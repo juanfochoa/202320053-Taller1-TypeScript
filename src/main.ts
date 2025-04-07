@@ -2,7 +2,7 @@ import { series } from './data';
 
 document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.getElementById('series-table-body');
-    if(tableBody){
+    if (tableBody) {
         series.forEach(serie => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${serie.seasons}</td>
             `;
             tableBody.appendChild(row);
-            });
-        }
+        });
+    }
 
     const totalSeasons = series.reduce((sum, serie) => sum + serie.seasons, 0);
     const averageSeasons = totalSeasons / series.length;
     const averageSeasonsElement = document.getElementById('average-seasons');
-    if (avarageSeasonsElement){
-        avarageSeasonsElement.textContent = 'Avarage seasons: ${averageSeasons.toFixed(1)}';
-        }
-    });
+    if (averageSeasonsElement) {
+        averageSeasonsElement.textContent = `Average seasons: ${averageSeasons.toFixed(1)}`;
+    }
+});
