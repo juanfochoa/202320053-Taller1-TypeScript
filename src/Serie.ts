@@ -5,7 +5,8 @@ export class Serie {
         public channel: string,
         public seasons: number,
         public description: string,
-        public image string
+        public url: string,
+        public image: string
     ) {}
 
 }
