@@ -1,24 +1,24 @@
-import { series } from './data';
+import { Series } from './data';
 
 document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.getElementById('series-table-body');
     if (tableBody) {
-        series.forEach(serie => {
+        Series.forEach(Serie => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${serie.id}</td>
-                <td>${serie.name}</td>
-                <td>${serie.channel}</td>
-                <td>${serie.seasons}</td>
+                <td>${Serie.id}</td>
+                <td><a href="${Serie.webpage}">${Serie.name}</a></td>
+                <td>${Serie.channel}</td>
+                <td>${Serie.seasons}</td>
             `;
             tableBody.appendChild(row);
         });
     }
 
-    const totalSeasons = series.reduce((sum, serie) => sum + serie.seasons, 0);
-    const averageSeasons = totalSeasons / series.length;
+    const totalSeasons = Series.reduce((sum, Serie) => sum + Serie.seasons, 0);
+    const averageSeasons = totalSeasons / Series.length;
     const averageSeasonsElement = document.getElementById('average-seasons');
     if (averageSeasonsElement) {
-        averageSeasonsElement.textContent = `Average seasons: ${averageSeasons.toFixed(1)}`;
+        averageSeasonsElement.textContent = `Seasons avarage: ${averageSeasons.toFixed(2)}`;
     }
 });
