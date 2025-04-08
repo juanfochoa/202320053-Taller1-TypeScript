@@ -1,6 +1,7 @@
-import { Series } from './data';
+import { Serie } from "./Serie.js";
+import { series } from "./data.js";
 
-document.addEventListener('DOMContentLoaded', () => {
+function renderSeries(Series: Serie[]): void {
     const tableBody = document.getElementById('series-table-body');
     if (tableBody) {
         Series.forEach(Serie => {
@@ -13,12 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             tableBody.appendChild(row);
         });
-    }
+        const totalSeasons = Series.reduce((sum, Serie) => sum + Serie.seasons, 0);
+        const averageSeasons = totalSeasons / Series.length;
 
-    const totalSeasons = Series.reduce((sum, Serie) => sum + Serie.seasons, 0);
-    const averageSeasons = totalSeasons / Series.length;
-    const averageSeasonsElement = document.getElementById('average-seasons');
-    if (averageSeasonsElement) {
-        averageSeasonsElement.textContent = `Seasons average: ${averageSeasons.toFixed(2)}`;
+        const summaryRow = document.createElement('tr');
+        summaryRow.innerHTML = `
+            <td colspan="7"> class="text-start fw-bold">Promedio de temporadas: ${averageSeasons.toFixed(2)}</td>
+        `;
+        tableBody.appendChild(summaryRow);
     }
+}
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM Content Loaded", ()=>{
+            console.log(series);
+            renderSeries(series);
+        });
 });
+
