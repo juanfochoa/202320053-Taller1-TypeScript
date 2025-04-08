@@ -20,9 +20,6 @@ function renderSeries(Series) {
         `;
         tableBody.appendChild(summaryRow);
     }
-    else {
-        return;
-    }
     document.addEventListener("DOMContentLoaded", () => {
         console.log("DOM Content Loaded", () => {
             console.log(series);

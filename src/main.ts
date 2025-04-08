@@ -25,12 +25,7 @@ function renderSeries(Series: Serie[]): void {
         `;
 
         tableBody.appendChild(summaryRow);
-
-    } else {
-        return;
     }
-
-    
     document.addEventListener("DOMContentLoaded", () => {
         console.log("DOM Content Loaded", ()=>{
             console.log(series);
@@ -38,4 +33,5 @@ function renderSeries(Series: Serie[]): void {
         });
     });
 }
+
 
