@@ -19,6 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const averageSeasons = totalSeasons / Series.length;
     const averageSeasonsElement = document.getElementById('average-seasons');
     if (averageSeasonsElement) {
-        averageSeasonsElement.textContent = `Seasons avarage: ${averageSeasons.toFixed(2)}`;
+        averageSeasonsElement.textContent = `Seasons average: ${averageSeasons.toFixed(2)}`;
     }
 });
